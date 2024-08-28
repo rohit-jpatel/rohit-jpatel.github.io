@@ -12,7 +12,10 @@
     position: relative;
     overflow: hidden;
 }
-
+.wsite-title{
+    font-family:"Quicksand" !important;
+    font-weight:700 !important;
+}
 nav{
     display: flex;
     padding: 2% 4%;
