@@ -13,8 +13,8 @@
     overflow: hidden;
 }
 .wsite-title{
-    font-family:"Quicksand" !important;
-    font-weight:700 !important;
+    font-family:"Quicksand";
+    font-weight:700;
 }
 nav{
     display: flex;
