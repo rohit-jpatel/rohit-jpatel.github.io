@@ -15,8 +15,17 @@
 .wsite-title{
     font-family:"Quicksand";
     font-weight:700;
+}
+.wsite-title ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.wsite-title ul li a{
     color: #fff;
     text-decoration: none;
+    font-size: 13px;
 }
 nav{
     display: flex;
