@@ -206,6 +206,69 @@ p{
     }
 } 
 
+/*------------------ Projects -----------------*/
+
+.projects{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+p{
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+.prow{
+    margin-top: 5%;
+    justify-content: space-between;  
+    display: flex; /* Ensure rows behave as flex containers */
+    flex-wrap: wrap; /* Allow wrapping to move items onto new rows */
+    flex-direction: column; /* Change columns into rows */
+    align-items: stretch; /* Ensure items take up equal space */
+    gap: 20px; /* Optional: Add spacing between items */
+}
+  
+.projects-col{
+    flex: 1 1 100%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: .5s;
+}
+.projects h3, h2{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.projects-col:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.projects-col ul {
+    margin-left: 20px; /* Indent the bullet points */
+    padding-left: 0; /* Ensure padding doesn't push the list too far */
+    list-style-position: inside; /* Keep bullets inside the div */
+    text-align: left;
+}
+
+@media (max-width:768px){
+    .prow{
+        flex-direction: row;
+    }
+    .projects-col {
+        flex: 1 1 calc(33.333% - 20px); /* Three columns with gap */
+    }
+} 
+
 /*---------------- campus ----------------*/
 
 .campus{
@@ -354,12 +417,21 @@ p{
 .footer{
     width: 100%;
     text-align: center;
-    padding: 30px 0;
+    padding: 20px 0;
+	margin: 0;
+	background-color: #f4f4f4;
+	color: #333;
 }
-.footer h4{
-    margin-bottom: 25px;
-    margin-top: 20px;
-    font-weight: 600;
+.footer h4, .footer p{
+    margin: 5px 0;
+}
+
+.footer .icons {
+    margin: 5px 0; /* Adjust spacing around icons */
+}
+
+.footer .icons i {
+    margin: 0 5px; /* Adjust icon spacing */
 }
 
 .icons .fa{
@@ -769,6 +841,70 @@ border-radius: 3px 0 0 3px; /* Rounded corners on the left */
   from {opacity: .4} 
   to {opacity: 1}
 }
+
+/* styles.css Publications link */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.arrow-link {
+    position: relative;
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.arrow-link::after {
+    content: '→';
+    position: absolute;
+    opacity: 0;
+    right: 20px;
+    transition: opacity 0.3s ease, right 0.3s ease;
+}
+
+.arrow-link:hover {
+    color: #0056b3;
+}
+
+.arrow-link:hover::after {
+    opacity: 1;
+    right: -10px;
+}
+
+/*--------------for experience---------------*/
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.list-container {
+    margin-bottom: 20px;
+} */
+
+ul.list {
+    list-style-type: disc; /* Ensure bullets are shown */
+    padding-left: 20px; /* Add left padding for bullets */
+}
+
+ul.list li {
+    margin-bottom: 10px;
+}
+
+.read-more-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3;
+}
+
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
