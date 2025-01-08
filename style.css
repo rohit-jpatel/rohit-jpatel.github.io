@@ -457,9 +457,17 @@ p{
     background-size: cover;
     text-align: center;
     color: #fff;
+    position: relative;
+    z-index: 10;
 }
 .sub-header h1{
     margin-top: 100px;
+}
+.introduction {
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/bg1.jpg);
 }
 .about-us{
     width: 80%;
@@ -910,4 +918,17 @@ ul.list li {
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
+}
+
+.profile-photo {
+    text-align: center;
+    padding: 20px 0;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/bg1.jpg);
+}
+
+.photo-container img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
