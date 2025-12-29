@@ -195,33 +195,75 @@
         </section>
 
         <section id="timeline" class="space-y-8">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-gray-900">[Timeline Title]</h2>
-                <p class="mt-4 text-gray-600">
-                    [Description of your career progression or skill development over time.]
-                </p>
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-900">Engineering Timeline</h2>
+        <p class="mt-4 text-sm font-mono text-gray-500 uppercase tracking-widest">
+            Progression: Mechanism Design &rarr; Commissioning &rarr; Strategy &rarr; Physics
+        </p>
+    </div>
+
+    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div class="chart-container mb-8">
+            <canvas id="careerChart"></canvas>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+            
+            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-sm text-gray-900">SPM Design</span>
+                    <span class="text-[10px] font-mono bg-gray-200 px-1.5 py-0.5 rounded text-gray-600">2018-22</span>
+                </div>
+                <ul class="text-xs text-gray-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <li><strong>Role:</strong> Mech. Design Engineer</li>
+                    <li><strong>Focus:</strong> Core Mechanism Design</li>
+                    <li><strong>Tech:</strong> Kinematics, Pneumatics, GD&T</li>
+                    <li><strong>Scope:</strong> Heavy Machinery (250T Presses), Rotary Indexers, Jig & Fixture Detailing.</li>
+                </ul>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <div class="chart-container">
-                    <canvas id="careerChart"></canvas>
+            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-sm text-gray-900">Project Lead</span>
+                    <span class="text-[10px] font-mono bg-gray-200 px-1.5 py-0.5 rounded text-gray-600">2022-23</span>
                 </div>
-                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-sm text-gray-500">
-                    <div class="p-3 bg-gray-50 rounded-lg">
-                        <strong class="block text-gray-900 text-lg">[Year / Era 1]</strong>
-                        [Role or Location]
-                    </div>
-                    <div class="p-3 bg-gray-50 rounded-lg">
-                        <strong class="block text-gray-900 text-lg">[Year / Era 2]</strong>
-                        [Role or Location]
-                    </div>
-                    <div class="p-3 bg-gray-50 rounded-lg">
-                        <strong class="block text-gray-900 text-lg">[Year / Era 3]</strong>
-                        [Role or Location]
-                    </div>
-                </div>
+                <ul class="text-xs text-gray-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <li><strong>Role:</strong> Jr. Designer / Project Owner</li>
+                    <li><strong>Focus:</strong> Commissioning & Prove-out</li>
+                    <li><strong>Tech:</strong> FAT/SAT Protocols, BOM Mgmt</li>
+                    <li><strong>Scope:</strong> End-to-end Project Mgmt, Customer Buy-offs, Site Installation, Troubleshooting.</li>
+                </ul>
             </div>
-        </section>
+
+            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-sm text-gray-900">Mfg. Strategy</span>
+                    <span class="text-[10px] font-mono bg-gray-200 px-1.5 py-0.5 rounded text-gray-600">2023-24</span>
+                </div>
+                <ul class="text-xs text-gray-600 space-y-2 list-disc list-inside leading-relaxed">
+                    <li><strong>Role:</strong> Manufacturing Engineer</li>
+                    <li><strong>Focus:</strong> CAPEX & Process Std.</li>
+                    <li><strong>Tech:</strong> AWS D8.1M, Layout Optimization</li>
+                    <li><strong>Scope:</strong> $9.7M Line Commissioning, Make vs. Buy Analysis, Safety-Critical Welding.</li>
+                </ul>
+            </div>
+
+            <div class="p-4 bg-orange-50 rounded-xl border border-orange-200 transition-colors">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-sm text-gray-900">R&D Systems</span>
+                    <span class="text-[10px] font-mono bg-orange-200 text-orange-800 px-1.5 py-0.5 rounded">Current</span>
+                </div>
+                <ul class="text-xs text-gray-800 space-y-2 list-disc list-inside leading-relaxed">
+                    <li><strong>Role:</strong> Graduate Researcher</li>
+                    <li><strong>Focus:</strong> Physics & Data Algo</li>
+                    <li><strong>Tech:</strong> ANSYS (Thermal), Python, PLC</li>
+                    <li><strong>Scope:</strong> LPBF Process Modeling, Automated Torque Verification, DC Tooling (Atlas Copco).</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
 
         <section id="projects" class="space-y-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-4">
@@ -451,48 +493,83 @@
         // FILL THIS IN WITH YOUR DATA
 
         function renderCareerChart() {
-            const ctx = document.getElementById('careerChart').getContext('2d');
-            
-            // X-Axis Labels (Years)
-            const labels = ['2018', '2020', '2022', '2024', '2025'];
-            
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [
-                        {
-                            label: '[Skillset A]',
-                            data: [90, 80, 60, 40, 30],
-                            borderColor: 'rgba(234, 88, 12, 0.2)',
-                            backgroundColor: 'rgba(234, 88, 12, 0.1)',
-                            fill: true,
-                            tension: 0.4
-                        },
-                        {
-                            label: '[Skillset B]',
-                            data: [10, 20, 30, 60, 100],
-                            borderColor: 'rgba(55, 65, 81, 1)',
-                            backgroundColor: 'rgba(55, 65, 81, 0.1)',
-                            fill: true,
-                            tension: 0.4
-                        }
-                    ]
+    const ctx = document.getElementById('careerChart').getContext('2d');
+    
+    // Updated Time Steps
+    const labels = ['2018', '2022', '2023', '2024', '2025'];
+    
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    // Black Line: Represents High-Level Mgmt & Physics
+                    label: 'Strategy, PM & Computation (%)',
+                    // 2018: Low
+                    // 2022: Low (Pure Design)
+                    // 2023: Jump (Project Mgmt/Commissioning)
+                    // 2024: High (Mfg Strategy)
+                    // 2025: Peak (Physics/R&D)
+                    data: [5, 10, 40, 75, 95], 
+                    borderColor: '#1F2937', 
+                    borderWidth: 2,
+                    backgroundColor: 'rgba(31, 41, 55, 0.05)',
+                    fill: true,
+                    tension: 0.3,
+                    pointBackgroundColor: '#1F2937'
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom' },
-                        tooltip: { mode: 'index', intersect: false }
-                    },
-                    scales: {
-                        y: { display: false },
-                        x: { grid: { display: false } }
-                    }
+                {
+                    // Orange Line: Represents Pure CAD/Detailing tasks
+                    label: 'Mechanism Design & Detailing (%)',
+                    // 2018: 100% of job
+                    // 2022: Still high
+                    // 2023: Drop (Shift to commissioning)
+                    // 2024: Low (Focus on standards/CAPEX)
+                    // 2025: Very Low (Focus on data/physics)
+                    data: [95, 90, 60, 25, 5], 
+                    borderColor: '#EA580C', 
+                    borderWidth: 2,
+                    backgroundColor: 'rgba(234, 88, 12, 0.05)',
+                    fill: true,
+                    tension: 0.3,
+                    pointBackgroundColor: '#EA580C'
                 }
-            });
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { 
+                    position: 'bottom',
+                    labels: { 
+                        font: { family: 'JetBrains Mono', size: 10 },
+                        boxWidth: 8
+                    }
+                },
+                tooltip: { 
+                    mode: 'index', 
+                    intersect: false,
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    titleColor: '#000',
+                    bodyColor: '#444',
+                    borderColor: '#ddd',
+                    borderWidth: 1,
+                    titleFont: { family: 'JetBrains Mono' },
+                    bodyFont: { family: 'JetBrains Mono' }
+                }
+            },
+            scales: {
+                y: { display: false },
+                x: { 
+                    grid: { display: false },
+                    ticks: { font: { family: 'JetBrains Mono' } }
+                }
+            }
         }
+    });
+}
 
         function renderImpactChart() {
             const ctx = document.getElementById('impactChart').getContext('2d');
