@@ -284,22 +284,47 @@
     </div>
 </section>
         <section id="projects" class="space-y-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-4">
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900">Projects</h2>
-                    <p class="mt-2 text-gray-600 max-w-xl">
-                        [Brief description of your projects portfolio.]
-                    </p>
-                </div>
-                <div class="mt-4 md:mt-0 flex space-x-2">
-                    <button onclick="filterProjects('all')" class="project-filter active px-4 py-2 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition">All</button>
-                    <button onclick="filterProjects('category1')" class="project-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition">[Category 1]</button>
-                    <button onclick="filterProjects('category2')" class="project-filter px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition">[Category 2]</button>
-                </div>
-            </div>
+       <div class="flex flex-wrap gap-2 justify-end mb-8">
+    <button onclick="filterProjects('all')" 
+            class="px-4 py-2 text-sm font-bold rounded-lg bg-gray-900 text-white shadow-md">
+        All Projects
+    </button>
+    
+    <button onclick="filterProjects('cat1')" 
+            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
+        [CAT 1 NAME]
+    </button>
+    
+    <button onclick="filterProjects('cat2')" 
+            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
+        [CAT 2 NAME]
+    </button>
+    
+    <button onclick="filterProjects('cat3')" 
+            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
+        [CAT 3 NAME]
+    </button>
 
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                </div>
+    <button onclick="filterProjects('cat4')" 
+            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
+        [CAT 4 NAME]
+    </button>
+
+    <button onclick="filterProjects('cat5')" 
+            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
+        [CAT 5 NAME]
+    </button>
+
+    <button onclick="filterProjects('cat6')" 
+            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
+        [CAT 6 NAME]
+    </button>
+
+    <button onclick="filterProjects('cat7')" 
+            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
+        [CAT 7 NAME]
+    </button>
+</div>
         </section>
 
         <section id="philosophy" class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200 overflow-hidden relative">
