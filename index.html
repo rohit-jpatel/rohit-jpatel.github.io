@@ -283,50 +283,52 @@
 
     </div>
 </section>
-        <section id="projects" class="space-y-8">
-       <div class="flex flex-wrap gap-2 justify-end mb-8">
-    <button onclick="filterProjects('all')" 
-            class="px-4 py-2 text-sm font-bold rounded-lg bg-gray-900 text-white shadow-md">
-        All Projects
-    </button>
-    
-    <button onclick="filterProjects('cat1')" 
-            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
-        [CAT 1 NAME]
-    </button>
-    
-    <button onclick="filterProjects('cat2')" 
-            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
-        [CAT 2 NAME]
-    </button>
-    
-    <button onclick="filterProjects('cat3')" 
-            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
-        [CAT 3 NAME]
-    </button>
+       <section id="projects" class="space-y-8">
+    <div class="flex flex-wrap gap-2 justify-end mb-8">
+        <button onclick="filterProjects('all')" 
+                class="project-filter px-4 py-2 text-sm font-bold rounded-lg bg-gray-900 text-white shadow-md transition-colors duration-200">
+            All Projects
+        </button>
+        
+        <button onclick="filterProjects('cat1')" 
+                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
+            [CAT 1 NAME]
+        </button>
+        
+        <button onclick="filterProjects('cat2')" 
+                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
+            [CAT 2 NAME]
+        </button>
+        
+        <button onclick="filterProjects('cat3')" 
+                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
+            [CAT 3 NAME]
+        </button>
 
-    <button onclick="filterProjects('cat4')" 
-            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
-        [CAT 4 NAME]
-    </button>
+        <button onclick="filterProjects('cat4')" 
+                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
+            [CAT 4 NAME]
+        </button>
 
-    <button onclick="filterProjects('cat5')" 
-            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
-        [CAT 5 NAME]
-    </button>
+        <button onclick="filterProjects('cat5')" 
+                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
+            [CAT 5 NAME]
+        </button>
 
-    <button onclick="filterProjects('cat6')" 
-            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
-        [CAT 6 NAME]
-    </button>
+        <button onclick="filterProjects('cat6')" 
+                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
+            [CAT 6 NAME]
+        </button>
 
-    <button onclick="filterProjects('cat7')" 
-            class="px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900">
-        [CAT 7 NAME]
-    </button>
-</div>
-        </section>
+        <button onclick="filterProjects('cat7')" 
+                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
+            [CAT 7 NAME]
+        </button>
+    </div>
 
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </div>
+</section>
         <section id="philosophy" class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200 overflow-hidden relative">
             <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-orange-50 rounded-full opacity-50 blur-3xl"></div>
             
@@ -509,34 +511,55 @@
         }
 
         function renderProjects() {
-            const grid = document.getElementById('projects-grid');
-            grid.innerHTML = '';
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return; // Prevents crash if grid is missing
+    grid.innerHTML = '';
 
-            const filtered = state.projectsFilter === 'all' 
-                ? projects 
-                : projects.filter(p => p.category === state.projectsFilter);
+    const filtered = state.projectsFilter === 'all' 
+        ? projects 
+        : projects.filter(p => p.category === state.projectsFilter);
 
-            filtered.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'project-card bg-white p-6 rounded-xl border border-gray-200 flex flex-col justify-between h-full';
-                card.innerHTML = `
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-gray-900 font-mono">${p.title}</h3>
-                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded uppercase font-semibold">${p.category}</span>
-                        </div>
-                        <p class="text-gray-600 mb-6 leading-relaxed">${p.desc}</p>
+    filtered.forEach(p => {
+        const card = document.createElement('div');
+        // Style: Clean white card with technical border interaction
+        card.className = 'bg-white p-5 rounded-xl border border-gray-200 hover:border-gray-900 transition-all duration-300 hover:shadow-lg flex flex-col h-full group';
+        
+        // Generate HTML safely checking if specs exist
+        const specsHtml = p.specs ? p.specs.map(spec => `
+            <div class="flex items-center gap-3 text-sm text-gray-700 font-mono">
+                <span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
+                ${spec}
+            </div>
+        `).join('') : '';
+
+        card.innerHTML = `
+            <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-3">
+                <div>
+                    <h3 class="font-bold text-gray-900 text-base leading-tight group-hover:text-orange-600 transition-colors">${p.title}</h3>
+                    <div class="text-xs font-mono text-gray-500 mt-1 uppercase tracking-wider">${p.client}</div>
+                </div>
+            </div>
+
+            <div class="space-y-2 mb-6 flex-grow">
+                ${specsHtml}
+            </div>
+
+            <div class="pt-3 border-t border-gray-100 mt-auto bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
+                <div class="flex justify-between items-center text-xs">
+                    <div class="flex flex-col">
+                        <span class="text-gray-400 uppercase text-[10px] font-bold">Role</span>
+                        <span class="font-semibold text-gray-900">${p.role}</span>
                     </div>
-                    <div class="flex justify-between items-center pt-4 border-t border-gray-100 mt-auto">
-                        <span class="text-sm font-mono text-orange-600">${p.tech}</span>
-                        <span class="text-sm text-gray-400 flex items-center gap-1">
-                            ★ ${p.stats}
-                        </span>
+                    <div class="text-right flex flex-col items-end">
+                        <span class="text-gray-400 uppercase text-[10px] font-bold">Tech Stack</span>
+                        <span class="font-mono text-orange-600">${p.tech}</span>
                     </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
+                </div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
 
         function updateCodeView() {
             const data = codeSnippets[state.currentParadigm];
