@@ -331,12 +331,15 @@
 </section>
        <section id="philosophy" class="bg-gray-50 border border-gray-200 p-0 overflow-hidden relative">
     
-    <div class="bg-gray-900 px-4 py-2 flex justify-between items-center border-b border-gray-800">
+   <div class="bg-gray-900 px-4 py-2 flex justify-between items-center border-b border-gray-800">
         <div class="flex items-center gap-2">
             <div class="w-3 h-3 rounded-full bg-red-500"></div>
             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div class="w-3 h-3 rounded-full bg-green-500"></div>
-            <span class="ml-3 font-mono text-xs text-gray-400">root@engineer:~/core_thesis</span>
+            
+            <span class="ml-3 font-mono text-xs text-gray-400">
+                root@engineer:~/<span id="code-filename" class="text-gray-100 font-bold">core_thesis</span>
+            </span>
         </div>
         <div class="font-mono text-xs text-gray-500">BASH</div>
     </div>
@@ -457,28 +460,6 @@
         { id: 21, category: 'cat7', title: 'PROJECT 7.3', client: 'CLIENT NAME', role: 'YOUR ROLE', tech: 'TECH STACK', specs: ['Spec A', 'Spec B', 'Spec C'] }
     ];
 
-        // --- DATA: PHILOSOPHY CONTENT (AC vs MFDC) ---
-        const codeSnippets = {
-            '1.0': {
-                filename: 'legacy_AC_weld.log',
-                content: `<span class="text-red-400">// FAILURE MODE: AC SYSTEM</span><br>
-> Equipment: Single Phase AC [cite: 60]<br>
-> Issue: High Pneumatic Inertia [cite: 104]<br>
-> Result: Current Shunting [cite: 115]<br>
-> Capability: <span class="text-red-400">Cpk < 1.33 (Unstable)</span> [cite: 61]<br>
-> Outcome: High Expulsion / Leakage`
-            },
-            '2.0': {
-                filename: 'optimized_MFDC.log',
-                content: `<span class="text-green-400">// SUCCESS MODE: MFDC SYSTEM</span><br>
-> Equipment: 3-Phase Inverter (1000Hz) [cite: 148]<br>
-> Control: Continuous Heat Input (Joule) [cite: 150]<br>
-> Capability: <span class="text-green-400">Ppk = 2.1 (Six Sigma)</span> <br>
-> ROI: 46.95% Annualized <br>
-> Status: Released for Mass Prod.`
-            }
-        };
-
         // --- Initialization ---
         document.addEventListener('DOMContentLoaded', () => {
             renderProjects();
@@ -522,7 +503,7 @@
             renderProjects();
         }
 
-       // --- 1. DATA: TERMINAL LOGS (Philosophy) ---
+      // --- 1. DATA: TERMINAL LOGS (Philosophy) ---
 const codeSnippets = {
     '1.0': {
         filename: 'legacy_log.txt',
@@ -553,7 +534,6 @@ const codeSnippets = {
 `
     }
 };
-
 // --- 2. RENDER FUNCTION: SPEC SHEET CARD ---
 function renderProjects() {
     const grid = document.getElementById('projects-grid');
