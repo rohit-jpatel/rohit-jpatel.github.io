@@ -194,77 +194,62 @@
             </div>
         </section>
 
-        <section id="timeline" class="space-y-8">
-    <div class="max-w-6xl mx-auto text-center">
+        <section id="timeline" class="max-w-4xl mx-auto space-y-12">
+    
+    <div class="space-y-4 text-center">
         <h2 class="text-3xl font-bold text-gray-900">Engineering Timeline</h2>
-        <p class="mt-4 text-sm font-mono text-gray-500 uppercase tracking-widest">
-            Progression: Mechanism Design &rarr; Commissioning &rarr; Strategy &rarr; Physics
+        <p class="text-sm font-mono text-gray-500 uppercase tracking-widest">
+            Progression: Mechanism Design &rarr; Strategy &rarr; Physics
         </p>
-    </div>
-
-    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <div class="chart-container mb-8">
+        <div class="chart-container bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
             <canvas id="careerChart"></canvas>
         </div>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-            
-            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="font-bold text-sm text-gray-900">SPM Design</span>
-                    <span class="text-[10px] font-mono bg-gray-200 px-1.5 py-0.5 rounded text-gray-600">2018-22</span>
-                </div>
-                <ul class="text-xs text-gray-600 space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Role:</strong> Mech. Design Engineer</li>
-                    <li><strong>Focus:</strong> Core Mechanism Design</li>
-                    <li><strong>Tech:</strong> Kinematics, Pneumatics, GD&T</li>
-                    <li><strong>Scope:</strong> Heavy Machinery (250T Presses), Rotary Indexers, Jig & Fixture Detailing.</li>
-                </ul>
+    <div class="space-y-12 pt-4">
+        
+        <div class="space-y-4">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs font-mono font-bold rounded-full">CURRENT</span>
+                <h3 class="text-xl font-bold text-gray-900">Graduate Researcher & Systems Engineer</h3>
             </div>
-
-            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="font-bold text-sm text-gray-900">Project Lead</span>
-                    <span class="text-[10px] font-mono bg-gray-200 px-1.5 py-0.5 rounded text-gray-600">2022-23</span>
-                </div>
-                <ul class="text-xs text-gray-600 space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Role:</strong> Jr. Designer / Project Owner</li>
-                    <li><strong>Focus:</strong> Commissioning & Prove-out</li>
-                    <li><strong>Tech:</strong> FAT/SAT Protocols, BOM Mgmt</li>
-                    <li><strong>Scope:</strong> End-to-end Project Mgmt, Customer Buy-offs, Site Installation, Troubleshooting.</li>
-                </ul>
-            </div>
-
-            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="font-bold text-sm text-gray-900">Mfg. Strategy</span>
-                    <span class="text-[10px] font-mono bg-gray-200 px-1.5 py-0.5 rounded text-gray-600">2023-24</span>
-                </div>
-                <ul class="text-xs text-gray-600 space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Role:</strong> Manufacturing Engineer</li>
-                    <li><strong>Focus:</strong> CAPEX & Process Std.</li>
-                    <li><strong>Tech:</strong> AWS D8.1M, Layout Optimization</li>
-                    <li><strong>Scope:</strong> $9.7M Line Commissioning, Make vs. Buy Analysis, Safety-Critical Welding.</li>
-                </ul>
-            </div>
-
-            <div class="p-4 bg-orange-50 rounded-xl border border-orange-200 transition-colors">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="font-bold text-sm text-gray-900">R&D Systems</span>
-                    <span class="text-[10px] font-mono bg-orange-200 text-orange-800 px-1.5 py-0.5 rounded">Current</span>
-                </div>
-                <ul class="text-xs text-gray-800 space-y-2 list-disc list-inside leading-relaxed">
-                    <li><strong>Role:</strong> Graduate Researcher</li>
-                    <li><strong>Focus:</strong> Physics & Data Algo</li>
-                    <li><strong>Tech:</strong> ANSYS (Thermal), Python, PLC</li>
-                    <li><strong>Scope:</strong> LPBF Process Modeling, Automated Torque Verification, DC Tooling (Atlas Copco).</li>
-                </ul>
-            </div>
-
+            <p class="text-lg leading-relaxed text-gray-800">
+                I am currently at <a href="#" class="font-bold text-gray-900 hover:underline">Clemson University (CU-ICAR)</a>, focused on the intersection of manufacturing physics and data. My work involves developing computational thermal models for <strong>Laser Powder Bed Fusion (LPBF)</strong> and implementing automated torque verification algorithms using <strong>Atlas Copco</strong> ecosystems.
+            </p>
         </div>
+
+        <div class="border-t border-gray-200 pt-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="font-mono text-gray-500 font-bold">2023 - 2024</span>
+                <h3 class="text-xl font-bold text-gray-900">Manufacturing Engineer (Strategy)</h3>
+            </div>
+            <p class="text-lg leading-relaxed text-gray-800">
+                I was at <span class="font-bold text-gray-900">Gabriel India Ltd.</span>, where I managed a <strong>$9.7M strategic CAPEX</strong> portfolio to insource safety-critical welding processes. My role shifted from pure design to factory strategy—defining <strong>AWS D8.1M</strong> welding standards and leading "Make vs. Buy" feasibility studies for high-volume production lines.
+            </p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="font-mono text-gray-500 font-bold">2022 - 2023</span>
+                <h3 class="text-xl font-bold text-gray-900">Project Lead & Jr. Designer</h3>
+            </div>
+            <p class="text-lg leading-relaxed text-gray-800">
+                A pivot year. I transitioned from detailed drafting to full project ownership. I led <strong>site commissioning</strong>, executed FAT/SAT protocols, and managed customer buy-offs. I learned that a perfect CAD model means nothing if it cannot be installed and validated on the floor.
+            </p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="font-mono text-gray-500 font-bold">2018 - 2022</span>
+                <h3 class="text-xl font-bold text-gray-900">Mechanical Design Engineer</h3>
+            </div>
+            <p class="text-lg leading-relaxed text-gray-800">
+                I started at <span class="font-bold text-gray-900">Sukhdhan Automation</span> and <span class="font-bold text-gray-900">Orbital Systems</span>. My focus was strictly on the "nuts and bolts" of Special Purpose Machines (SPMs). I designed <strong>250-ton hydraulic presses</strong>, calculated kinematics for rotary indexers, and mastered <strong>GD&T</strong> for fabrication. This period built my foundational intuition for how heavy machinery physically behaves.
+            </p>
+        </div>
+
     </div>
 </section>
-
         <section id="projects" class="space-y-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-4">
                 <div>
