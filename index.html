@@ -331,12 +331,11 @@
 </section>
        <section id="philosophy" class="bg-gray-50 border border-gray-200 p-0 overflow-hidden relative">
     
-   <div class="bg-gray-900 px-4 py-2 flex justify-between items-center border-b border-gray-800">
+    <div class="bg-gray-900 px-4 py-2 flex justify-between items-center border-b border-gray-800">
         <div class="flex items-center gap-2">
             <div class="w-3 h-3 rounded-full bg-red-500"></div>
             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div class="w-3 h-3 rounded-full bg-green-500"></div>
-            
             <span class="ml-3 font-mono text-xs text-gray-400">
                 root@engineer:~/<span id="code-filename" class="text-gray-100 font-bold">core_thesis</span>
             </span>
@@ -345,29 +344,41 @@
     </div>
 
     <div class="grid md:grid-cols-2">
-        <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-200 bg-white">
-            <div class="font-mono text-xs font-bold text-orange-600 uppercase tracking-widest mb-4">
-                >> SYSTEM_ARCHITECTURE
-            </div>
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 uppercase tracking-tight">Deterministic Process Control</h2>
-            <p class="text-gray-700 leading-relaxed font-mono text-sm mb-6 text-justify">
-                Manufacturing variance is a failure of system definition. My methodology shifts from <strong class="bg-gray-100 px-1">Reactive Correction</strong> (inspecting for defects) to <strong class="bg-gray-100 px-1">Predictive Physics</strong> (locking input variables). We do not solve problems; we engineer the system so the problem cannot physically exist.
-            </p>
-            
-            <div class="mt-8 border-l-4 border-orange-600 pl-4 py-2 bg-orange-50">
-                <p class="font-mono text-xs text-orange-900 italic">
-                    "The legacy AC equipment's physical limitations (pneumatic inertia) render it incapable of meeting NPI quality standards. MFDC is the prerequisite."
+        <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-200 bg-white flex flex-col justify-between">
+            <div>
+                <div class="font-mono text-xs font-bold text-orange-600 uppercase tracking-widest mb-4">
+                    >> SYSTEM_ARCHITECTURE
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 uppercase tracking-tight">Deterministic Process Control</h2>
+                <p class="text-gray-700 leading-relaxed font-mono text-sm mb-6 text-justify">
+                    Manufacturing variance is a failure of system definition. My methodology shifts from <strong class="bg-gray-100 px-1">Reactive Correction</strong> (fixing defects) to <strong class="bg-gray-100 px-1">Predictive Physics</strong> (locking input variables). We do not solve problems; we engineer the system so the problem cannot physically exist.
                 </p>
+                
+                <div class="border-l-4 border-orange-600 pl-4 py-2 bg-orange-50 mb-8">
+                    <p class="font-mono text-xs text-orange-900 italic">
+                        "The legacy AC equipment's physical limitations (pneumatic inertia) render it incapable of meeting NPI quality standards. MFDC is the prerequisite."
+                    </p>
+                </div>
             </div>
 
-            <button id="toggle-paradigm" class="mt-8 w-full border border-gray-900 text-gray-900 font-mono text-xs font-bold py-3 uppercase hover:bg-gray-900 hover:text-white transition-all flex justify-between px-4">
-                <span>Run_Comparison_Script.sh</span>
-                <span>[EXECUTE]</span>
-            </button>
+            <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                <div class="font-mono text-[10px] text-gray-500 uppercase mb-2">Select System State:</div>
+                <div class="flex gap-4">
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input type="radio" name="sys_state" value="1.0" checked onchange="updateParadigm(this.value)" class="accent-red-600 w-4 h-4 cursor-pointer">
+                        <span class="font-mono text-xs font-bold text-gray-500 group-hover:text-red-600 transition-colors">LEGACY_AC</span>
+                    </label>
+
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input type="radio" name="sys_state" value="2.0" onchange="updateParadigm(this.value)" class="accent-green-600 w-4 h-4 cursor-pointer">
+                        <span class="font-mono text-xs font-bold text-gray-500 group-hover:text-green-600 transition-colors">OPTIMIZED_MFDC</span>
+                    </label>
+                </div>
+            </div>
         </div>
 
-        <div class="bg-[#0f172a] p-6 overflow-x-auto flex items-center">
-            <div id="code-content" class="font-mono text-xs leading-loose w-full">
+        <div class="bg-[#0f172a] p-6 overflow-x-auto flex items-center min-h-[300px]">
+            <div id="code-content" class="font-mono text-xs leading-loose w-full text-gray-300">
                 </div>
         </div>
     </div>
@@ -503,37 +514,43 @@
             renderProjects();
         }
 
-      // --- 1. DATA: TERMINAL LOGS (Philosophy) ---
-const codeSnippets = {
-    '1.0': {
-        filename: 'legacy_log.txt',
-        content: `
-<div class="text-gray-500"># SYSTEM DIAGNOSTIC: LEGACY AC</div>
-<div class="text-red-400 font-bold">Error: PROCESS_INSTABILITY_DETECTED</div>
-<div class="pl-4 border-l border-gray-700 text-gray-400">
-  > [cite_start]Equipment: Single Phase AC [cite: 60]<br>
-  > [cite_start]Inertia: HIGH (Pneumatic Lag) [cite: 104]<br>
-  > [cite_start]Defect: Expulsion / Shunting [cite: 115]<br>
-  > [cite_start]Cpk: 0.85 (FAIL) [cite: 61]<br>
-</div>
-<div class="text-red-500 mt-2">>> STATUS: CRITICAL FAILURE</div>
-`
-    },
-    '2.0': {
-        filename: 'optimized_log.txt',
-        content: `
-<div class="text-gray-500"># SYSTEM DIAGNOSTIC: NEW MFDC</div>
-<div class="text-green-400 font-bold">Success: PARAMETERS_LOCKED</div>
-<div class="pl-4 border-l border-gray-700 text-gray-400">
-  > [cite_start]Equipment: 3-Phase Inverter [cite: 148]<br>
-  > [cite_start]Heat: Continuous Joule Input [cite: 151]<br>
-  > [cite_start]Control: LVDT Feedback Loop [cite: 156]<br>
-  > [cite_start]Ppk: 2.1 (SIX SIGMA) [cite: 187]<br>
-</div>
-<div class="text-green-500 mt-2">>> STATUS: MASS PRODUCTION READY</div>
-`
+      // --- 1. DATA: TERMINAL LOGS (CLEANED) ---
+    const codeSnippets = {
+        '1.0': {
+            filename: 'legacy_log.txt',
+            content: `
+    <div class="text-gray-500 mb-2"># SYSTEM DIAGNOSTIC: LEGACY AC</div>
+    <div class="text-red-400 font-bold mb-2">Error: PROCESS_INSTABILITY_DETECTED</div>
+    <div class="pl-4 border-l-2 border-red-900 text-gray-400 space-y-1">
+      <div>> Equipment: Single Phase AC</div>
+      <div>> Inertia: HIGH (Pneumatic Lag)</div>
+      <div>> Defect: Expulsion / Shunting</div>
+      <div>> Cpk: <span class="text-red-400 font-bold">0.85 (FAIL)</span></div>
+    </div>
+    <div class="text-red-500 mt-4 font-bold bg-red-500/10 inline-block px-2 py-1">>> STATUS: CRITICAL FAILURE</div>
+    `
+        },
+        '2.0': {
+            filename: 'optimized_log.txt',
+            content: `
+    <div class="text-gray-500 mb-2"># SYSTEM DIAGNOSTIC: NEW MFDC</div>
+    <div class="text-green-400 font-bold mb-2">Success: PARAMETERS_LOCKED</div>
+    <div class="pl-4 border-l-2 border-green-900 text-gray-400 space-y-1">
+      <div>> Equipment: 3-Phase Inverter</div>
+      <div>> Heat: Continuous Joule Input</div>
+      <div>> Control: LVDT Feedback Loop</div>
+      <div>> Ppk: <span class="text-green-400 font-bold">2.1 (SIX SIGMA)</span></div>
+    </div>
+    <div class="text-green-500 mt-4 font-bold bg-green-500/10 inline-block px-2 py-1">>> STATUS: MASS PRODUCTION READY</div>
+    `
+        }
+    };
+
+    // --- 2. UPDATED TOGGLE FUNCTION ---
+    function updateParadigm(val) {
+        state.currentParadigm = val;
+        updateCodeView();
     }
-};
 // --- 2. RENDER FUNCTION: SPEC SHEET CARD ---
 function renderProjects() {
     const grid = document.getElementById('projects-grid');
