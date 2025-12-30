@@ -329,42 +329,46 @@
     <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         </div>
 </section>
-        <section id="philosophy" class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200 overflow-hidden relative">
-            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-orange-50 rounded-full opacity-50 blur-3xl"></div>
-            
-            <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-block px-3 py-1 bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wide rounded-full">
-                        Engineering Thesis
-                    </div>
-                    <h2 class="text-4xl font-bold text-gray-900">Process</h2>
-                    <p class="text-lg text-gray-600 leading-relaxed">
-                        Manufacturing is not just about assembly; it is about the stabilization of variables. My approach moves from <strong>Reactive Correction</strong> (fixing defects) to <strong>Predictive Control</strong> (locking parameters). By validating physics first—like mitigating current shunting in resistance welding—we ensure financial ROI follows naturally.
-                    </p>
-                    <div class="p-4 bg-orange-50 border-l-4 border-orange-500 rounded-r-lg">
-                        <p class="italic text-orange-900 text-sm">
-                            "The legacy AC equipment's physical limitations (inertia) render it incapable of meeting NPI quality standards. MFDC is the prerequisite."
-                        </p> </div>
-                    
-                    <button id="toggle-paradigm" class="mt-4 px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition flex items-center gap-2">
-                        <span>Compare Methodologies</span>
-                        <span class="text-xl">↺</span>
-                    </button>
-                </div>
+       <section id="philosophy" class="bg-gray-50 border border-gray-200 p-0 overflow-hidden relative">
+    
+    <div class="bg-gray-900 px-4 py-2 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            <span class="ml-3 font-mono text-xs text-gray-400">root@engineer:~/core_thesis</span>
+        </div>
+        <div class="font-mono text-xs text-gray-500">BASH</div>
+    </div>
 
-                <div class="bg-gray-900 rounded-xl shadow-2xl overflow-hidden font-mono text-sm transform transition-all duration-500" id="code-window">
-                    <div class="flex items-center gap-2 px-4 py-3 bg-gray-800 border-b border-gray-700">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                        <span class="ml-2 text-gray-400 text-xs" id="code-filename">legacy_process.log</span>
-                    </div>
-                    <div class="p-6 text-gray-300 overflow-x-auto h-64 flex items-center" id="code-content">
-                        </div>
-                </div>
+    <div class="grid md:grid-cols-2">
+        <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-200 bg-white">
+            <div class="font-mono text-xs font-bold text-orange-600 uppercase tracking-widest mb-4">
+                >> SYSTEM_ARCHITECTURE
             </div>
-        </section>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 uppercase tracking-tight">Deterministic Process Control</h2>
+            <p class="text-gray-700 leading-relaxed font-mono text-sm mb-6 text-justify">
+                Manufacturing variance is a failure of system definition. My methodology shifts from <strong class="bg-gray-100 px-1">Reactive Correction</strong> (inspecting for defects) to <strong class="bg-gray-100 px-1">Predictive Physics</strong> (locking input variables). We do not solve problems; we engineer the system so the problem cannot physically exist.
+            </p>
+            
+            <div class="mt-8 border-l-4 border-orange-600 pl-4 py-2 bg-orange-50">
+                <p class="font-mono text-xs text-orange-900 italic">
+                    "The legacy AC equipment's physical limitations (pneumatic inertia) render it incapable of meeting NPI quality standards. MFDC is the prerequisite."
+                </p>
+            </div>
 
+            <button id="toggle-paradigm" class="mt-8 w-full border border-gray-900 text-gray-900 font-mono text-xs font-bold py-3 uppercase hover:bg-gray-900 hover:text-white transition-all flex justify-between px-4">
+                <span>Run_Comparison_Script.sh</span>
+                <span>[EXECUTE]</span>
+            </button>
+        </div>
+
+        <div class="bg-[#0f172a] p-6 overflow-x-auto flex items-center">
+            <div id="code-content" class="font-mono text-xs leading-loose w-full">
+                </div>
+        </div>
+    </div>
+</section>
         <section class="space-y-8 pb-20">
             <h2 class="text-3xl font-bold text-gray-900 border-b border-gray-200 pb-4">Impact & Education</h2>
             
@@ -518,9 +522,42 @@
             renderProjects();
         }
 
-        function renderProjects() {
+       // --- 1. DATA: TERMINAL LOGS (Philosophy) ---
+const codeSnippets = {
+    '1.0': {
+        filename: 'legacy_log.txt',
+        content: `
+<div class="text-gray-500"># SYSTEM DIAGNOSTIC: LEGACY AC</div>
+<div class="text-red-400 font-bold">Error: PROCESS_INSTABILITY_DETECTED</div>
+<div class="pl-4 border-l border-gray-700 text-gray-400">
+  > [cite_start]Equipment: Single Phase AC [cite: 60]<br>
+  > [cite_start]Inertia: HIGH (Pneumatic Lag) [cite: 104]<br>
+  > [cite_start]Defect: Expulsion / Shunting [cite: 115]<br>
+  > [cite_start]Cpk: 0.85 (FAIL) [cite: 61]<br>
+</div>
+<div class="text-red-500 mt-2">>> STATUS: CRITICAL FAILURE</div>
+`
+    },
+    '2.0': {
+        filename: 'optimized_log.txt',
+        content: `
+<div class="text-gray-500"># SYSTEM DIAGNOSTIC: NEW MFDC</div>
+<div class="text-green-400 font-bold">Success: PARAMETERS_LOCKED</div>
+<div class="pl-4 border-l border-gray-700 text-gray-400">
+  > [cite_start]Equipment: 3-Phase Inverter [cite: 148]<br>
+  > [cite_start]Heat: Continuous Joule Input [cite: 151]<br>
+  > [cite_start]Control: LVDT Feedback Loop [cite: 156]<br>
+  > [cite_start]Ppk: 2.1 (SIX SIGMA) [cite: 187]<br>
+</div>
+<div class="text-green-500 mt-2">>> STATUS: MASS PRODUCTION READY</div>
+`
+    }
+};
+
+// --- 2. RENDER FUNCTION: SPEC SHEET CARD ---
+function renderProjects() {
     const grid = document.getElementById('projects-grid');
-    if (!grid) return; // Prevents crash if grid is missing
+    if (!grid) return;
     grid.innerHTML = '';
 
     const filtered = state.projectsFilter === 'all' 
@@ -529,46 +566,46 @@
 
     filtered.forEach(p => {
         const card = document.createElement('div');
-        // Style: Clean white card with technical border interaction
-        card.className = 'bg-white p-5 rounded-xl border border-gray-200 hover:border-gray-900 transition-all duration-300 hover:shadow-lg flex flex-col h-full group';
+        // Look: Sharp borders, technical white card
+        card.className = 'bg-white border-2 border-gray-100 hover:border-gray-900 transition-colors duration-200 flex flex-col h-full group relative';
         
-        // Generate HTML safely checking if specs exist
-        const specsHtml = p.specs ? p.specs.map(spec => `
-            <div class="flex items-center gap-3 text-sm text-gray-700 font-mono">
-                <span class="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
-                ${spec}
+        // Generate Specs Grid
+        const specsHtml = p.specs ? p.specs.map(spec => {
+            // Split "Label: Value" for better formatting
+            const [label, value] = spec.split(':');
+            return `
+            <div class="flex justify-between border-b border-gray-100 py-1 last:border-0">
+                <span class="text-gray-500 font-mono text-[10px] uppercase">${label}:</span>
+                <span class="text-gray-900 font-mono text-[10px] font-bold text-right">${value || ''}</span>
             </div>
-        `).join('') : '';
+            `;
+        }).join('') : '';
 
         card.innerHTML = `
-            <div class="flex justify-between items-start mb-4 border-b border-gray-100 pb-3">
-                <div>
-                    <h3 class="font-bold text-gray-900 text-base leading-tight group-hover:text-orange-600 transition-colors">${p.title}</h3>
-                    <div class="text-xs font-mono text-gray-500 mt-1 uppercase tracking-wider">${p.client}</div>
+            <div class="bg-gray-50 border-b border-gray-200 px-4 py-2 flex justify-between items-center">
+                <span class="font-mono text-[10px] text-gray-400">ID: 0${p.id}</span>
+                <span class="font-mono text-[10px] font-bold text-orange-600 bg-orange-50 px-1 border border-orange-200 uppercase">Deployed</span>
+            </div>
+
+            <div class="p-5 flex-grow">
+                <h3 class="font-bold text-gray-900 text-lg leading-tight uppercase tracking-tight mb-1">${p.title}</h3>
+                <div class="text-xs font-mono text-gray-400 uppercase mb-4">${p.client}</div>
+
+                <div class="bg-gray-50 p-3 border border-gray-100 mb-4">
+                    ${specsHtml}
                 </div>
             </div>
 
-            <div class="space-y-2 mb-6 flex-grow">
-                ${specsHtml}
-            </div>
-
-            <div class="pt-3 border-t border-gray-100 mt-auto bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
-                <div class="flex justify-between items-center text-xs">
-                    <div class="flex flex-col">
-                        <span class="text-gray-400 uppercase text-[10px] font-bold">Role</span>
-                        <span class="font-semibold text-gray-900">${p.role}</span>
-                    </div>
-                    <div class="text-right flex flex-col items-end">
-                        <span class="text-gray-400 uppercase text-[10px] font-bold">Tech Stack</span>
-                        <span class="font-mono text-orange-600">${p.tech}</span>
-                    </div>
+            <div class="px-5 pb-5 mt-auto">
+                <div class="text-[10px] font-mono text-gray-400 mb-1 uppercase">Sys_Architecture:</div>
+                <div class="font-mono text-xs text-gray-800 break-words leading-relaxed">
+                    > ${p.tech}
                 </div>
             </div>
         `;
         grid.appendChild(card);
     });
 }
-
         function updateCodeView() {
             const data = codeSnippets[state.currentParadigm];
             const contentEl = document.getElementById('code-content');
