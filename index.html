@@ -194,16 +194,20 @@
             </div>
         </section>
 
-       <section id="timeline" class="max-w-3xl mx-auto">
+     <section id="timeline" class="max-w-4xl mx-auto space-y-12">
     
-    <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-gray-900">Engineering Roadmap</h2>
-        <p class="mt-2 text-sm font-mono text-gray-500 uppercase tracking-widest">
-            2018 &mdash; Present
+    <div class="space-y-6 text-center">
+        <h2 class="text-3xl font-bold text-gray-900">Technical Competency</h2>
+        <p class="text-xs sm:text-sm font-mono text-gray-500 uppercase tracking-widest">
+            Domain Shift: Mechanism Design &rarr; Process Physics
         </p>
+        
+        <div class="chart-container bg-white p-4 rounded-xl border border-gray-100 shadow-sm h-64 sm:h-80">
+            <canvas id="careerChart"></canvas>
+        </div>
     </div>
 
-    <div class="relative border-l-2 border-gray-200 ml-4 md:ml-6 space-y-12">
+    <div class="relative border-l-2 border-gray-200 ml-4 md:ml-6 space-y-12 pt-4">
 
         <div class="relative pl-8 md:pl-12">
             <span class="absolute -left-[9px] top-1 h-5 w-5 rounded-full border-4 border-white bg-orange-500 shadow-sm ring-1 ring-orange-200"></span>
@@ -213,9 +217,14 @@
                 <span class="text-xs font-mono font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded">CURRENT</span>
             </div>
             
-            <p class="text-gray-700 leading-relaxed">
-                I am currently at <span class="font-semibold text-gray-900">Clemson University (CU-ICAR)</span>, focused on the intersection of manufacturing physics and data. My work involves developing computational thermal models for <strong class="text-gray-900">Laser Powder Bed Fusion (LPBF)</strong> and implementing automated torque verification algorithms using <strong class="text-gray-900">Atlas Copco</strong> ecosystems.
-            </p>
+            <div class="text-gray-800 text-base md:text-lg space-y-2">
+                <p><strong>Scope:</strong> Computational Physics & Data Systems.</p>
+                <ul class="list-disc list-inside text-gray-600 text-base space-y-1">
+                    <li>Developing <strong>Stochastic Thermal Models</strong> for LPBF Additive Manufacturing (ANSYS/nTopology).</li>
+                    <li>Architecting automated torque audit algorithms within <strong>Atlas Copco</strong> ecosystems (Open Protocol).</li>
+                    <li>Bridging <strong>Deterministic Metrology</strong> with probabilistic process data.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="relative pl-8 md:pl-12">
@@ -223,12 +232,17 @@
             
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-2">
                 <h3 class="text-lg font-bold text-gray-900">Manufacturing Engineer (Strategy)</h3>
-                <span class="text-xs font-mono text-gray-400">2023 - 2024</span>
+                <span class="text-xs font-mono text-gray-400 font-bold">2023 - 2024</span>
             </div>
             
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                I was at <span class="font-semibold text-gray-900">Gabriel India Ltd.</span>, where I managed a <strong class="text-gray-800">$9.7M strategic CAPEX</strong> portfolio to insource safety-critical welding processes. My role shifted from pure design to factory strategy—defining <strong class="text-gray-800">AWS D8.1M</strong> welding standards and leading "Make vs. Buy" feasibility studies for high-volume production lines.
-            </p>
+            <div class="text-gray-600 text-base space-y-2">
+                <p><strong>Scope:</strong> Process Capability & CAPEX Execution.</p>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>Executed <strong>$9.7M CAPEX</strong> portfolio for high-volume line deployment.</li>
+                    <li>Established <strong>AWS D8.1M</strong> welding standards for safety-critical joints.</li>
+                    <li>Conducted Techno-Commercial (Make vs. Buy) analysis impacting 500k units/year.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="relative pl-8 md:pl-12">
@@ -236,25 +250,35 @@
             
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-2">
                 <h3 class="text-lg font-bold text-gray-900">Project Lead & Jr. Designer</h3>
-                <span class="text-xs font-mono text-gray-400">2022 - 2023</span>
+                <span class="text-xs font-mono text-gray-400 font-bold">2022 - 2023</span>
             </div>
             
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                A pivot year. I transitioned from detailed drafting to full project ownership. I led <strong class="text-gray-800">site commissioning</strong>, executed FAT/SAT protocols, and managed customer buy-offs. I learned that a perfect CAD model means nothing if it cannot be installed and validated on the floor.
-            </p>
+            <div class="text-gray-600 text-base space-y-2">
+                <p><strong>Scope:</strong> Systems Integration & Validation.</p>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>Led <strong>Site Commissioning</strong> and equipment prove-out.</li>
+                    <li>Executed <strong>FAT/SAT Protocols</strong> (Factory/Site Acceptance Tests).</li>
+                    <li>Resolved kinematic interferences during physical installation phase.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="relative pl-8 md:pl-12 pb-2">
+        <div class="relative pl-8 md:pl-12 pb-4">
             <span class="absolute -left-[5px] top-2 h-3 w-3 rounded-full bg-gray-300 ring-4 ring-white"></span>
             
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-2">
                 <h3 class="text-lg font-bold text-gray-900">Mechanical Design Engineer</h3>
-                <span class="text-xs font-mono text-gray-400">2018 - 2022</span>
+                <span class="text-xs font-mono text-gray-400 font-bold">2018 - 2022</span>
             </div>
             
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                I started at <span class="font-semibold text-gray-900">Sukhdhan Automation</span> and <span class="font-semibold text-gray-900">Orbital Systems</span>. My focus was strictly on the "nuts and bolts" of Special Purpose Machines (SPMs). I designed <strong class="text-gray-800">250-ton hydraulic presses</strong>, calculated kinematics for rotary indexers, and mastered <strong class="text-gray-800">GD&T</strong> for fabrication. This period built my foundational intuition for how heavy machinery physically behaves.
-            </p>
+            <div class="text-gray-600 text-base space-y-2">
+                <p><strong>Scope:</strong> Discrete Mechanism Design (SPM).</p>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>Designed <strong>250-Ton Hydraulic Presses</strong> and rotary indexers.</li>
+                    <li>Performed <strong>Kinematic Synthesis</strong> and Structural FEA.</li>
+                    <li>Generated fabrication drawings using <strong>GD&T</strong> (ASME Y14.5).</li>
+                </ul>
+            </div>
         </div>
 
     </div>
