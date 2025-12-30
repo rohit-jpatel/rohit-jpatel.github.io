@@ -283,47 +283,24 @@
 
     </div>
 </section>
-       <section id="projects" class="space-y-8">
-    <div class="flex flex-wrap gap-2 justify-end mb-8">
-        <button onclick="filterProjects('all')" 
-                class="project-filter px-4 py-2 text-sm font-bold rounded-lg bg-gray-900 text-white shadow-md transition-colors duration-200">
-            All Projects
-        </button>
+       <section id="projects" class="space-y-12">
+    <div class="flex flex-col md:flex-row justify-between items-end border-b-2 border-gray-900 pb-4">
+        <div>
+            <h2 class="text-4xl font-bold text-gray-900 tracking-tight uppercase">Project Database</h2>
+            <p class="font-mono text-sm text-gray-500 mt-1">/ SELECT_CATEGORY_TO_VIEW_SPECS</p>
+        </div>
         
-        <button onclick="filterProjects('cat1')" 
-                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
-            [CAT 1 NAME]
-        </button>
-        
-        <button onclick="filterProjects('cat2')" 
-                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
-            [CAT 2 NAME]
-        </button>
-        
-        <button onclick="filterProjects('cat3')" 
-                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
-            [CAT 3 NAME]
-        </button>
-
-        <button onclick="filterProjects('cat4')" 
-                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
-            [CAT 4 NAME]
-        </button>
-
-        <button onclick="filterProjects('cat5')" 
-                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
-            [CAT 5 NAME]
-        </button>
-
-        <button onclick="filterProjects('cat6')" 
-                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
-            [CAT 6 NAME]
-        </button>
-
-        <button onclick="filterProjects('cat7')" 
-                class="project-filter px-4 py-2 text-sm font-medium rounded-lg bg-white text-gray-600 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors duration-200">
-            [CAT 7 NAME]
-        </button>
+        <div class="flex flex-wrap gap-2 mt-4 md:mt-0">
+            <button onclick="filterProjects('all')" class="project-filter px-4 py-1 text-xs font-mono font-bold uppercase border border-gray-900 bg-gray-900 text-white hover:bg-gray-800">
+                [ALL]
+            </button>
+            <button onclick="filterProjects('cat2')" class="project-filter px-4 py-1 text-xs font-mono font-bold uppercase border border-gray-300 text-gray-500 hover:border-gray-900 hover:text-gray-900 transition-colors">
+                [MFG_STRATEGY]
+            </button>
+            <button onclick="filterProjects('cat1')" class="project-filter px-4 py-1 text-xs font-mono font-bold uppercase border border-gray-300 text-gray-500 hover:border-gray-900 hover:text-gray-900 transition-colors">
+                [DESIGN_SPM]
+            </button>
+            </div>
     </div>
 
     <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
