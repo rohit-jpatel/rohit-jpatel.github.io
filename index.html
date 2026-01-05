@@ -141,7 +141,7 @@
                 <button onclick="scrollToSection('hero')" class="nav-item text-gray-600 hover:text-gray-900 px-1 py-2 text-sm font-medium transition-colors">Home</button>
                 <button onclick="scrollToSection('timeline')" class="nav-item text-gray-600 hover:text-gray-900 px-1 py-2 text-sm font-medium transition-colors">Timeline</button>
                 <button onclick="scrollToSection('projects')" class="nav-item text-gray-600 hover:text-gray-900 px-1 py-2 text-sm font-medium transition-colors">Projects</button>
-                <button onclick="scrollToSection('philosophy')" class="nav-item text-gray-600 hover:text-gray-900 px-1 py-2 text-sm font-medium transition-colors">Philosophy</button>
+                <button onclick="scrollToSection('philosophy')" class="nav-item text-gray-600 hover:text-gray-900 px-1 py-2 text-sm font-medium transition-colors">Core Projects</button>
             </div>
             
             <div class="flex items-center sm:hidden">
@@ -202,7 +202,6 @@
             </div>
 
             <div class="relative border-l-2 border-gray-200 ml-4 md:ml-6 space-y-12 pt-4">
-
                 <div class="relative pl-8 md:pl-12">
                     <span class="absolute -left-[9px] top-1 h-5 w-5 rounded-full border-4 border-white bg-orange-500 shadow-sm ring-1 ring-orange-200"></span>
                     <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-2">
@@ -325,38 +324,36 @@
 
                 <div class="flex">
                     <button onclick="switchSystem('mfdc')" id="tab-mfdc" class="px-6 py-2 font-mono text-xs font-bold uppercase rounded-t-lg bg-gray-800 text-white border-t border-l border-r border-gray-700 relative top-[1px]">
-                        [SYS_01]: DETERMINISTIC_MFG
+                        [PRJ_01]: JOINING_PROCESS (MFDC)
                     </button>
                     <button onclick="switchSystem('lpbf')" id="tab-lpbf" class="px-6 py-2 font-mono text-xs font-bold uppercase rounded-t-lg bg-gray-900 text-gray-500 border-b border-gray-800 hover:text-gray-300 transition-colors">
-                        [SYS_02]: STOCHASTIC_R&D
+                        [PRJ_02]: THERMAL_PHYSICS (LPBF)
                     </button>
                 </div>
             </div>
 
             <div class="grid md:grid-cols-2">
                 <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-200 bg-white flex flex-col justify-between h-full min-h-[400px]">
-                    <div id="thesis-content" class="fade-in">
-                        </div>
+                    <div id="thesis-content" class="fade-in"></div>
 
                     <div class="bg-gray-100 p-4 rounded-lg border border-gray-200 mt-8">
-                        <div class="font-mono text-[10px] text-gray-500 uppercase mb-2">Run Simulation State:</div>
+                        <div class="font-mono text-[10px] text-gray-500 uppercase mb-2">Select Process State:</div>
                         <div class="flex gap-4">
                             <label class="flex items-center gap-2 cursor-pointer group">
                                 <input type="radio" name="sys_state" value="1.0" onchange="updateParadigm(this.value)" class="accent-red-600 w-4 h-4 cursor-pointer">
-                                <span class="font-mono text-xs font-bold text-gray-500 group-hover:text-red-600 transition-colors">LEGACY_MODE</span>
+                                <span class="font-mono text-xs font-bold text-gray-500 group-hover:text-red-600 transition-colors">LEGACY_STATE</span>
                             </label>
 
                             <label class="flex items-center gap-2 cursor-pointer group">
                                 <input type="radio" name="sys_state" value="2.0" checked onchange="updateParadigm(this.value)" class="accent-green-600 w-4 h-4 cursor-pointer">
-                                <span class="font-mono text-xs font-bold text-gray-500 group-hover:text-green-600 transition-colors">OPTIMIZED_MODE</span>
+                                <span class="font-mono text-xs font-bold text-gray-500 group-hover:text-green-600 transition-colors">OPTIMIZED_STATE</span>
                             </label>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-[#0f172a] p-6 overflow-x-auto flex items-center h-full">
-                    <div id="code-content" class="font-mono text-xs leading-loose w-full text-gray-300">
-                        </div>
+                    <div id="code-content" class="font-mono text-xs leading-loose w-full text-gray-300"></div>
                 </div>
             </div>
         </section>
@@ -367,7 +364,6 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                     <h3 class="text-2xl font-bold text-gray-900 mb-6">Academic Qualifications</h3>
-                    
                     <ul class="space-y-6">
                         <li class="flex items-start gap-3">
                             <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center bg-orange-100 text-orange-700 rounded-full text-xs font-bold">MS</span>
@@ -422,49 +418,49 @@
     <script>
         // --- 1. STATE MANAGEMENT ---
         const state = {
-            activeSystem: 'mfdc', // 'mfdc' or 'lpbf'
-            currentParadigm: '2.0', // '1.0' (Legacy) or '2.0' (Optimized)
+            activeSystem: 'mfdc',
+            currentParadigm: '2.0', 
             projectsFilter: 'all'
         };
 
-        // --- 2. MASTER DATA: PHILOSOPHY SYSTEMS ---
+        // --- 2. MASTER DATA: CORE PROJECTS ---
         const systemData = {
-            // SYSTEM 1: MANUFACTURING (Source: Project Report PDF)
+            // SYSTEM 1: JOINING ENGINEERING (MFDC) - Aligned with Job Description
             mfdc: {
-                title: "Deterministic Process Control",
-                subtitle: ">> SYSTEM_ARCHITECTURE: WELDING_PHYSICS",
-                text: `Manufacturing variance is a failure of system definition. My methodology shifts from <strong class="bg-gray-100 px-1">Reactive Correction</strong> (fixing defects) to <strong class="bg-gray-100 px-1">Predictive Physics</strong> (locking variables). By mitigating physical limitations like pneumatic inertia, we ensure financial ROI follows naturally.`,
-                quote: `"The legacy AC equipment's physical limitations (pneumatic inertia) render it incapable of meeting NPI quality standards. MFDC is the prerequisite."`,
+                title: "Joining Process Architecture",
+                subtitle: ">> SYSTEM_INTEGRATION: HIGH_SPEED_JOINING",
+                text: `Transitioning joining from reactive firefighting to deterministic science. Aligning with <strong>Structures Design</strong> and <strong>CAE</strong>, I execute <strong>DoEs</strong> to characterize process boundary conditions, ensuring manufacturability before the first prototype. [cite_start]My focus extends beyond equipment commissioning to establishing robust <strong>Quality Control Plans</strong> and <strong>PFMEA</strong> loops for high-volume ramp-up[cite: 5, 6].`,
+                quote: `"Plan and execute DoEs to characterize boundary conditions... optimizing towards high-speed limits for the joining manufacturability and quality."`,
                 logs: {
                     '1.0': `
-<div class="text-gray-500 mb-2"># DIAGNOSTIC: LEGACY_AC_WELD</div>
-<div class="text-red-400 font-bold mb-2">Error: PROCESS_INSTABILITY</div>
+<div class="text-gray-500 mb-2"># SYSTEM AUDIT: LEGACY_LINE_01</div>
+<div class="text-red-400 font-bold mb-2">Error: BOUNDARY_CONDITION_VIOLATION</div>
 <div class="pl-4 border-l-2 border-red-900 text-gray-400 space-y-1">
-  <div>> Equipment: Single Phase AC</div>
-  <div>> Issue: High Pneumatic Inertia</div>
-  <div>> Defect: Expulsion / Shunting</div>
-  <div>> Cpk: <span class="text-red-400 font-bold">0.85 (FAIL)</span></div>
+  [cite_start]<div>> Process: Single Phase AC [cite: 153]</div>
+  [cite_start]<div>> DFM_Status: Thermal Distortion (High Inertia) [cite: 160]</div>
+  [cite_start]<div>> PFMEA_Risk: Expulsion/Shunting Detected [cite: 169]</div>
+  [cite_start]<div>> Capability: <span class="text-red-400 font-bold">Cpk 0.85 (Unstable)</span> [cite: 117]</div>
 </div>
-<div class="text-red-500 mt-4 font-bold bg-red-500/10 inline-block px-2 py-1">>> STATUS: CRITICAL FAILURE</div>`,
+<div class="text-red-500 mt-4 font-bold bg-red-500/10 inline-block px-2 py-1">>> ACTION: INITIATE_PROCESS_REDESIGN</div>`,
                     
                     '2.0': `
-<div class="text-gray-500 mb-2"># DIAGNOSTIC: OPTIMIZED_MFDC</div>
-<div class="text-green-400 font-bold mb-2">Success: PARAMETERS_LOCKED</div>
+<div class="text-gray-500 mb-2"># SYSTEM AUDIT: MFDC_CELL_RAMP</div>
+<div class="text-green-400 font-bold mb-2">Success: PROCESS_WINDOW_CHARACTERIZED</div>
 <div class="pl-4 border-l-2 border-green-900 text-gray-400 space-y-1">
-  <div>> Equipment: 3-Phase Inverter</div>
-  <div>> Control: Continuous Joule Input</div>
-  <div>> Feedback: LVDT Closed Loop</div>
-  <div>> Ppk: <span class="text-green-400 font-bold">2.1 (SIX SIGMA)</span></div>
+  [cite_start]<div>> Architecture: 3-Phase Inverter (1000Hz) [cite: 204]</div>
+  [cite_start]<div>> DoE_Validation: Weld Lobe Defined (2kA Window) [cite: 225]</div>
+  [cite_start]<div>> Cycle_Time: 16s (High-Speed Target Met) [cite: 101]</div>
+  [cite_start]<div>> Handover: <span class="text-green-400 font-bold">Ppk 2.1 (Six Sigma)</span> [cite: 243]</div>
 </div>
-<div class="text-green-500 mt-4 font-bold bg-green-500/10 inline-block px-2 py-1">>> STATUS: MASS PRODUCTION READY</div>`
+<div class="text-green-500 mt-4 font-bold bg-green-500/10 inline-block px-2 py-1">>> ACTION: RELEASE_TO_MASS_PROD</div>`
                 }
             },
 
-            // SYSTEM 2: RESEARCH (Source: Resume & MATLAB Code)
+            // SYSTEM 2: RESEARCH (LPBF)
             lpbf: {
                 title: "Stochastic Thermal Control",
                 subtitle: ">> COMPUTATIONAL_PHYSICS: ADDITIVE_MFG",
-                text: `In Laser Powder Bed Fusion (LPBF), sequential scanning creates predictable thermal gradients, leading to <strong class="bg-gray-100 px-1">Residual Stress</strong> and distortion. My research replaces deterministic paths with <strong class="bg-gray-100 px-1">Stochastic Algorithms</strong>—randomizing vectors to homogenize heat distribution.`,
+                text: `In Laser Powder Bed Fusion (LPBF), sequential scanning creates predictable thermal gradients, leading to <strong class="bg-gray-100 px-1">Residual Stress</strong> and distortion. [cite_start]My research replaces deterministic paths with <strong class="bg-gray-100 px-1">Stochastic Algorithms</strong>—randomizing vectors to homogenize heat distribution[cite: 41, 42].`,
                 quote: `"Simulating randomized scanning trajectories to analyze thermal gradients, part distortion, and defect evolution using finite element thermal modeling."`,
                 logs: {
                     '1.0': `
@@ -492,14 +488,14 @@
             }
         };
 
-        // --- 3. PROJECT DATA (7 Real Items) ---
+        // --- 3. PROJECT DATA ---
         const projects = [
             { 
                 id: 1, 
                 category: 'strategy', 
                 title: 'Auto. Torque Verification', 
                 client: 'Tesla, Inc.', 
-                desc: 'Engineered a "First-at-Tesla" automated residual torque audit system, replacing manual checks with a parametric Pset framework.',
+                [cite_start]desc: 'Engineered a "First-at-Tesla" automated residual torque audit system, replacing manual checks with a parametric Pset framework[cite: 5, 6].',
                 tech: 'Atlas Copco / Python / SQL',
                 specs: ['Universal Logic Framework', 'Eliminated Redundant DoEs', 'High-Volume Validation'] 
             },
@@ -508,7 +504,7 @@
                 category: 'strategy', 
                 title: 'Welding Line Insourcing', 
                 client: 'Gabriel India', 
-                desc: 'Justified and executed a $9.7M CAPEX strategy to bring safety-critical welding in-house, achieving 47% ROI.',
+                [cite_start]desc: 'Justified and executed a $9.7M CAPEX strategy to bring safety-critical welding in-house, achieving 47% ROI[cite: 14, 15].',
                 tech: 'SAP / Fin. Modeling / AWS D8.1M',
                 specs: ['ROI: 47% (25-Month Payback)', 'Zero "Burn-Through" Defects', 'Standards Compliance'] 
             },
@@ -517,7 +513,7 @@
                 category: 'strategy', 
                 title: 'RFID Inventory Automation', 
                 client: 'Gabriel India', 
-                desc: 'Commissioned an RFID-based vending solution integrated with procurement logic to prevent line starvation.',
+                [cite_start]desc: 'Commissioned an RFID-based vending solution integrated with procurement logic to prevent line starvation[cite: 22, 23].',
                 tech: 'IoT / SAP Integration',
                 specs: ['Cost Reduction: 15%', 'Zero Line Starvation', 'Auto-Replenishment Logic'] 
             },
@@ -526,7 +522,7 @@
                 category: 'design', 
                 title: '12-Station Rotary SPM', 
                 client: 'Orbital Systems', 
-                desc: 'Designed a high-speed Cam-Driven Indexing machine for circuit breaker assembly, synchronizing servo-pressing with EOL validation.',
+                [cite_start]desc: 'Designed a high-speed Cam-Driven Indexing machine for circuit breaker assembly, synchronizing servo-pressing with EOL validation[cite: 28, 29].',
                 tech: 'SolidWorks / Servo Logic',
                 specs: ['Accuracy: ±5µm', 'Cycle Time: 11s', '100% Defect Detection'] 
             },
@@ -535,7 +531,7 @@
                 category: 'design', 
                 title: '250T Servo Riveting Press', 
                 client: 'Sukhdhan Automation', 
-                desc: 'Developed a rigid 4-pillar press replacing C-Frame designs, implementing "Force Monitoring" logic to reduce joint failures.',
+                [cite_start]desc: 'Developed a rigid 4-pillar press replacing C-Frame designs, implementing "Force Monitoring" logic to reduce joint failures[cite: 35, 36].',
                 tech: 'Hydraulics / Force Sensors / PLC',
                 specs: ['Deflection: Negligible', 'Failure Rate: -50%', 'Adaptive Process Control'] 
             },
@@ -544,7 +540,7 @@
                 category: 'design', 
                 title: 'Cab Bracket Topology Opt.', 
                 client: 'Tesla, Inc.', 
-                desc: 'Optimized the BIW Cab Lifting Bracket structure to withstand 600kg+ dynamic loads while reducing mass.',
+                [cite_start]desc: 'Optimized the BIW Cab Lifting Bracket structure to withstand 600kg+ dynamic loads while reducing mass[cite: 9].',
                 tech: 'Catia V5 / Abaqus / FEA',
                 specs: ['Mass Reduction: 64.5%', 'Safety Factor: > 2.0', 'Material: High-Strength Steel'] 
             },
@@ -553,7 +549,7 @@
                 category: 'research', 
                 title: 'Stochastic LPBF Modeling', 
                 client: 'Clemson (CU-ICAR)', 
-                desc: 'Simulating randomized laser scanning trajectories to analyze thermal gradients and predict part distortion.',
+                [cite_start]desc: 'Simulating randomized laser scanning trajectories to analyze thermal gradients and predict part distortion[cite: 41, 42].',
                 tech: 'MATLAB / ANSYS / nTopology',
                 specs: ['Thermal Gradient Analysis', 'Residual Stress Mitigation', 'Algorithm Development'] 
             }
