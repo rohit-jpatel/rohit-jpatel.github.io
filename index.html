@@ -540,7 +540,9 @@
                 client: 'Orbital Systems', 
                 desc: 'Designed a high-speed Cam-Driven Indexing machine for circuit breaker assembly, synchronizing servo-pressing with EOL validation.',
                 tech: 'SolidWorks / Servo Logic',
-                specs: ['Accuracy: ±5µm', 'Cycle Time: 11s', '100% Defect Detection'] 
+                specs: ['Accuracy: ±5µm', 'Cycle Time: 11s', '100% Defect Detection'],
+                video: 'https://www.youtube.com/embed/HSUSi834lMA',
+                videoCredit: 'Video property of Orbital Systems (Bombay) Pvt Ltd. Shared for portfolio demonstration.'
             },
             { 
                 id: 5, 
@@ -637,14 +639,32 @@
                      </div>`
                 ).join('');
 
+                // Check if video exists for this project
+                let mediaHtml = '';
+                if (p.video) {
+                    mediaHtml = `
+                        <div class="w-full h-48 mb-4 rounded-lg overflow-hidden relative border border-gray-200 bg-gray-100">
+                            <iframe src="${p.video}" title="${p.title}" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="mb-4 pt-2 border-t border-gray-100">
+                            <p class="text-[10px] text-gray-400 font-mono italic leading-tight text-center">
+                                ${p.videoCredit}
+                            </p>
+                        </div>
+                    `;
+                }
+
                 card.innerHTML = `
-                    <div class="p-5 pb-0">
+                    <div class="p-5 pb-0 flex-grow">
                         <div class="flex justify-between items-start mb-2">
                             <span class="font-mono text-[10px] text-gray-400">ID: 0${p.id}</span>
                             <span class="px-2 py-0.5 bg-gray-100 text-gray-600 text-[10px] uppercase font-bold tracking-wider rounded">${p.category}</span>
                         </div>
                         <h3 class="font-bold text-gray-900 text-lg leading-tight group-hover:text-orange-600 transition-colors mb-1">${p.title}</h3>
                         <div class="text-xs font-mono text-gray-500 uppercase mb-3">${p.client}</div>
+                        
+                        ${mediaHtml}
+
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">${p.desc}</p>
                     </div>
                     <div class="mt-auto bg-gray-50 p-4 border-t border-gray-100">
