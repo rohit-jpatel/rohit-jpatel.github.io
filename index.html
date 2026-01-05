@@ -425,7 +425,7 @@
 
         // --- 2. MASTER DATA: CORE PROJECTS ---
         const systemData = {
-            // SYSTEM 1: JOINING ENGINEERING (MFDC) - Aligned with Job Description
+            // SYSTEM 1: JOINING ENGINEERING (MFDC)
             mfdc: {
                 title: "Joining Process Architecture",
                 subtitle: ">> SYSTEM_INTEGRATION: HIGH_SPEED_JOINING",
@@ -476,14 +476,30 @@
                     
                     '2.0': `
 <div class="text-gray-500 mb-2">% SIMULATION: STOCHASTIC_GRID</div>
-<div class="text-green-400 font-bold mb-2">Success: THERMAL_HOMOGENIZATION</div>
-<div class="pl-4 border-l-2 border-green-900 text-gray-400 space-y-1">
+<div class="text-green-400 font-bold mb-4">Success: THERMAL_HOMOGENIZATION</div>
+
+<div class="pl-4 border-l-2 border-green-900 text-gray-400 space-y-1 mb-6">
   <div>>> Grid_Size: [10,10] (9 Quadrants)</div>
   <div>>> Algorithm: randperm(9)</div>
   <div>>> Overlap_Margin: 0.2mm (Seamless)</div>
   <div>>> Distortion: <span class="text-green-400 font-bold">< 0.5% (Sound)</span></div>
 </div>
-<div class="text-green-500 mt-4 font-bold bg-green-500/10 inline-block px-2 py-1">>> STATUS: MODEL VALIDATED</div>`
+
+<div class="border-t border-gray-800 pt-4">
+    <div class="text-[10px] text-gray-500 font-mono mb-2 uppercase">>> GENERATING_PLOTS... [DONE]</div>
+    <div class="grid grid-cols-2 gap-3">
+        <div class="group relative">
+            <div class="absolute top-2 left-2 bg-black/70 text-white text-[9px] px-1 rounded">FIG_1: SCAN_PATH</div>
+            <img src="images/lpbf_simulation.jpg" class="w-full rounded border border-gray-700 opacity-90 group-hover:opacity-100 transition-opacity" alt="Scan Path">
+        </div>
+        <div class="group relative">
+            <div class="absolute top-2 left-2 bg-black/70 text-white text-[9px] px-1 rounded">FIG_2: MELT_DENSITY</div>
+            <img src="images/lpbf_result.jpg" class="w-full rounded border border-gray-700 opacity-90 group-hover:opacity-100 transition-opacity" alt="Final Cube">
+        </div>
+    </div>
+</div>
+
+<div class="text-green-500 mt-6 font-bold bg-green-500/10 inline-block px-2 py-1">>> STATUS: MODEL VALIDATED</div>`
                 }
             }
         };
